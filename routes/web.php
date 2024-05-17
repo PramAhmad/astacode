@@ -1,15 +1,15 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FeController;
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
-// route group admni
+// route fe
+Route::get('/',[FeController::class,'index'])->name('frontend.index');
+// route group admnin
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
@@ -30,14 +30,11 @@ Route::group(['prefix' => 'admin'], function () {
         return view('admin.chart');
     })->name('admin.chart');
    
-    Route::get('/charts', function () {
-        return view('admin.chart');
-    })->name('admin.chart');
-   
+ 
     
 });
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'storeLogin'])->name('login.store');
-Route::get('/create-account', [AuthController::class, 'createAccount'])->name('create.account');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
