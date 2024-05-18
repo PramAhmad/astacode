@@ -32,11 +32,11 @@
                     <p class="wow fadeInUp" data-wow-delay=".6s" class="">
                         Astacode is a company engaged in the technology sector, with our motto being Support Your System, with types of services including IT Consultant, System Development, Networking, Gadget Service, Design, Computer Procurement etc.</p>
                     <div class="hero-button">
-                        <a href="about.html" class="tw-py-3 tw-px-5 tw-bg-sky-500 tw-hover:bg-sky-600 tw-text-white tw-rounded-md wow fadeInUp" data-wow-delay=".8s">
+                        <a href="#about" class="tw-py-3 tw-px-5 tw-bg-sky-500 tw-hover:bg-sky-600 tw-text-white tw-rounded-md wow fadeInUp" data-wow-delay=".8s">
                             About Us
                             <i class="fa-solid fa-arrow-right-long"></i>
                         </a>
-                        <a class=" tw-bg-rose-500 hover:tw-bg-rose-400 tw-text-white tw-py-3 tw-px-5 tw-rounded-md wow fadeInUp" data-wow-delay=".9s">
+                        <a href="https://youtu.be/ckJ6kIev64c?si=YZk1Adc8BG2wzE_q" class=" tw-bg-rose-500 hover:tw-bg-rose-400 tw-text-white tw-py-3 tw-px-5 tw-rounded-md wow fadeInUp" data-wow-delay=".9s">
                             
                             <span class=" d-line">Watch Company Video</span>
                         </a>
@@ -348,74 +348,46 @@
             <div class="section-title">
                 <span class="wow fadeInUp">PROJECTS</span>
                 <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                    Our Latest Incredible <br> Client's Projects
+                    Our Latest Incredible Client's Projects
                 </h2>
             </div>
-            <div class="array-button wow fadeInUp" data-wow-delay=".5s">
-                <button class="array-prev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                    <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
-                  </svg>
-                  </button>
-                <button class="array-next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                    <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-                  </svg>
-                  </button>
-            </div>
+            <a href="{{route('frontend.project')}}" class="tw-bg-sky-500 tw-rounded-md tw-py-3 tw-px-5 tw-text-white  hover:tw-scale-110">See Project <i class="fa-solid fa-arrow-right-long"></i> </a>
+      
         </div>
         <div class="project-wrapper">
             <div class="swiper project-slider-2">
                 <div class="swiper-wrapper">
+                    @foreach ($project as $item)
+                        
                     <div class="swiper-slide">
                         <div class="project-items style-2">
                             <div class="project-image">
-                                <img src="{{asset('fe/assets/img/project/05.jpg')}}" alt="project-img">
-                                <div class="project-content">
-                                    <p>Technology</p>
-                                    <h4>
-                                        <a href="project-details.html">Software Development</a>
-                                    </h4>
-                                    <a href="project-details.html" class="arrow-icon">
-                                        <i class="fa-solid fa-arrow-right"></i>
+                                <img src="{{$item->firstimage->path}}" alt="project-img">
+                            </div>
+                            <div class="tw-w-full">
+                                <div class="project-content tw-bg-gray-100 hover:tw-bg-gray-200 tw-pt-10 tw-flex tw-justify-between tw-items-center tw-px-4 tw-pb-4 group">
+                                    <div class="group-hover:tw-text-white">
+                                        <p class="tw-text-2xl tw-text-sky-500 tw-font-semibold group-hover:tw-text-white">{{$item->name}}</p>
+                                        <h4>
+                                            <a href="project-details.html" class="group-hover:tw-text-white">{{$item->category_project->name}}</a>
+                                        </h4>
+                                    </div>
+                                    <a href="project-details.html" class="tw-text-right tw-ml-auto tw-text-xl tw-transition tw-transform hover:tw-translate-x-1 group-hover:tw-text-white">
+                                        <i class="fa-solid fa-arrow-right group-hover:tw-text-white"></i>
                                     </a>
                                 </div>
                             </div>
+                            
+                            
                         </div>
+                        
                     </div>
-                    <div class="swiper-slide">
-                        <div class="project-items style-2">
-                            <div class="project-image">
-                                <img src="{{asset('fe/assets/img/project/06.jpg')}}" alt="project-img">
-                                <div class="project-content">
-                                    <p>Technology</p>
-                                    <h4>
-                                        <a href="project-details.html">Analytic Solutions</a>
-                                    </h4>
-                                    <a href="project-details.html" class="arrow-icon">
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="project-items style-2">
-                            <div class="project-image">
-                                <img src="{{asset('fe/')}}" alt="project-img">
-                                <div class="project-content">
-                                    <p>Solutions</p>
-                                    <h4>
-                                        <a href="project-details.html">Design Solutions</a>
-                                    </h4>
-                                    <a href="project-details.html" class="arrow-icon">
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+              
                 </div>
             </div>
-        </div>
+            
+       </div>
     </div>
 </section>
 
@@ -458,7 +430,7 @@
 </div>
 
 <!--<< Team Section Start >>-->
-<section class="team-section-2 section-padding bg-cover" style="background-image: url('assets/img/team/bg.jpg');" id="team">
+<section class="team-section-2 section-padding bg-cover" style="background-image: url('{{asset('fe/assets/img/team/bg.jpg')}}');" id="team">
     <div class="container">
         <div class="section-title-area">
             <div class="section-title">
@@ -478,7 +450,7 @@
                     <div class="team-image">
                         <img src="{{asset('fe/assets/img/team/team1.png')}}" alt="team-img">
                         <div class="social-profile">
-                            <span class="plus-btn">why choose us</span>
+                            <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
                             <ul>
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
@@ -511,9 +483,9 @@
                     </div>
                     <div class="team-content text-center">
                         <h3>
-                            <a href="team-details.html">Bessie Cooper</a>
+                            <a href="team-details.html">Muhammad Hisyam</a>
                         </h3>
-                        <p>President of Sales</p>
+                        <p>Chief Financial Officer - CFO</p>
                     </div>
                 </div>
             </div>
@@ -545,9 +517,7 @@
 
 <!--<< Choose Us Section Start >>-->
 <section class="choose-us-section fix section-padding">
-    <div class="choose-shape">
-        <img src="{{asset('fe/assets/img/choose/shape.png')}}" alt="shape-img">
-    </div>
+  
     <div class="bottom-shape">
         <img src="{{asset('fe/assets/img/choose/bottom-shape.png')}}" alt="shape-img">
     </div>
@@ -564,8 +534,21 @@
         <div class="choose-us-wrapper">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="choose-us-image wow fadeInUp" data-wow-delay=".4s">
-                        <img src="{{asset('fe/assets/img/choose/01.png')}}" alt="img">
+                    <div class=" wow fadeInUp" data-wow-delay=".4s">
+                        {{-- ember video --}}
+                        <div class="tw-w-[80%]">
+                            <div class="">
+                                <div class="tw-bg-white tw-border tw-border-gray-200  tw-rounded-md tw-p-3   wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                                   
+                                    <div class="row ">
+                                        
+                                        <iframe width="1482" height="350" src="https://www.youtube.com/embed/ckJ6kIev64c" title="Documentation - SINKOP (Sistem Informasi Koperasi) Kab. Garut" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6 mt-4 mt-lg-0">
@@ -819,120 +802,6 @@
     </div>
 </section>
 
-<!-- News Section Start -->
-<section class="news-section fix section-padding" id="blog">
-    <div class="container">
-        <div class="section-title-area">
-            <div class="section-title">
-                <span class="wow fadeInUp">Latest Blog</span>
-                <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                    Checkout Our Latest <br> News & Articles
-                </h2>
-            </div>
-            <a href="news.html" class="theme-btn wow fadeInUp" data-wow-delay=".5s">
-                All Article
-                <i class="fa-solid fa-arrow-right-long"></i>
-            </a>
-        </div>
-        <div class="row">
-            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                <div class="news-card-items">
-                    <div class="news-image">
-                        <img src="{{asset('fe/assets/img/news/04.jpg')}}" alt="news-img">
-                        <div class="post-date">
-                            <h3>
-                                17 <br>
-                                <span>Feb</span>
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="news-content">
-                        <ul>
-                            <li>
-                                <i class="fa-regular fa-user"></i>
-                                By Admin
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-tag"></i>
-                                IT Services
-                            </li>
-                        </ul>
-                        <h3>
-                            <a href="news-details.html">Simplify Streamline Succeed  IT Solutions</a>
-                        </h3>
-                        <a href="news-details.html" class="theme-btn-2 mt-3">
-                            read More
-                            <i class="fa-solid fa-arrow-right-long"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                <div class="news-card-items">
-                    <div class="news-image">
-                        <img src="{{asset('fe/assets/img/news/05.jpg')}}" alt="news-img">
-                        <div class="post-date">
-                            <h3>
-                                20 <br>
-                                <span>May</span>
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="news-content">
-                        <ul>
-                            <li>
-                                <i class="fa-regular fa-user"></i>
-                                By Admin
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-tag"></i>
-                                UI/UX Design
-                            </li>
-                        </ul>
-                        <h3>
-                            <a href="news-details.html">Unlocking Potential Through Technology</a>
-                        </h3>
-                        <a href="news-details.html" class="theme-btn-2 mt-3">
-                            read More
-                            <i class="fa-solid fa-arrow-right-long"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                <div class="news-card-items">
-                    <div class="news-image">
-                        <img src="{{asset('fe/assets/img/news/06.jpg')}}" alt="news-img">
-                        <div class="post-date">
-                            <h3>
-                                18 <br>
-                                <span>Mar</span>
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="news-content">
-                        <ul>
-                            <li>
-                                <i class="fa-regular fa-user"></i>
-                                By Admin
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-tag"></i>
-                                Cyber Security
-                            </li>
-                        </ul>
-                        <h3>
-                            <a href="news-details.html">Supervisor Disapproved of Latest Work.</a>
-                        </h3>
-                        <a href="news-details.html" class="theme-btn-2 mt-3">
-                            read More
-                            <i class="fa-solid fa-arrow-right-long"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 @endsection

@@ -30,11 +30,11 @@ class AuthController extends Controller
     public function createAccount()
     {
         $user = User::create([
-            'name' => 'John Doe',
+            'name' => 'Pram',
             'email' => 'pram@mail.com',
             'password' => bcrypt('tasikmalaya'),
         ]);
-        $user->assignRole('superadmin');
+        $user->assignRole('admin');
 
         return $user;
 

@@ -204,88 +204,10 @@
                                         <nav id="mobile-menu">
                                             <ul>
                                                 <li class="has-dropdown active menu-thumb">
-                                                    <a href="index.html">
+                                                    <a href="{{route('frontend.index')}}">
                                                     Home 
-                                                    <i class="fas fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="submenu has-homemenu">
-                                                        <li>
-                                                            <div class="homemenu-items">
-                                                                <div class="homemenu">
-                                                                    <div class="homemenu-thumb">
-                                                                        <img src="assets/img/header/home-1.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index.html" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="index-one-page.html" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 01
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <img src="assets/img/header/home-2.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index-2.html" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="index-two-page.html" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 02
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <img src="assets/img/header/home-3.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index-3.html" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="index-three-page.html" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 03
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu">
-                                                                    <div class="homemenu-thumb mb-15">
-                                                                        <img src="assets/img/header/home-4.jpg" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="index-4.html" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="index-four-page.html" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="homemenu-content text-center">
-                                                                        <h4 class="homemenu-title">
-                                                                            Home 04
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
+                                                 
+                                                    
                                                 </li>
                                                 <li>
                                                     <a href="#about">About</a>

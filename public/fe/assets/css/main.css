@@ -5987,7 +5987,7 @@ input.main-search-input::placeholder {
 
 .project-items .project-image {
   position: relative;
-  height: 457px;
+  height: 350px;
 }
 .project-items .project-image img {
   width: 100%;
@@ -5999,7 +5999,7 @@ input.main-search-input::placeholder {
   bottom: 25px;
   left: 25px;
   right: 25px;
-  padding: 35px 30px;
+  padding: 25px 20px;
   background-color: var(--white);
   overflow: hidden;
 }

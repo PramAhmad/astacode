@@ -28,7 +28,7 @@
                 <div class="brand-logo">
                   <img src="{{asset('assets/images/logo.svg')}}">
                 </div>
-                <h4>Hello! let's get started</h4>
+                <h4>Welcome here the secret page</h4>
                 <h6 class="font-weight-light">Sign in to continue.</h6>
                 <form class="pt-3"  action="{{route('login.store')}}" method="post">
                     @csrf
@@ -42,16 +42,8 @@
                   <div class="mt-3">
                     <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" >SIGN IN</button>
                   </div>
-                  <div class="my-2 d-flex justify-content-between align-items-center">
-                    <div class="form-check">
-                      <label class="form-check-label text-muted">
-                        <input type="checkbox" class="form-check-input"> Keep me signed in </label>
-                    </div>
-                    <a href="#" class="auth-link text-black">Forgot password?</a>
-                  </div>
-                  
-                  <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="register.html" class="text-primary">Create</a>
-                  </div>
+        
+                 </div>
                 </form>
               </div>
             </div>
