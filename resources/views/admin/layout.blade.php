@@ -235,13 +235,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('project.index')}}">
+              <a class="nav-link" href="{{route('member.index')}}">
                 <span class="menu-title">Member Team</span>
                 <i class="mdi mdi-contacts menu-icon"></i>
               </a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link" href="{{route('project.index')}}">
+              <a class="nav-link" href="{{route('contact.index')}}">
                 <span class="menu-title">Contact</span>
                 <i class="mdi mdi-contacts menu-icon"></i>
               </a>

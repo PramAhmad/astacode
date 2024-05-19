@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FeController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\MasterCategoryProject;
@@ -28,12 +29,14 @@ Route::get('/create-account', [AuthController::class, 'createAccount'])->name('c
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
-    })->name('admin.dashboard')->middleware('role:admin');    
+    })->name('admin.dashboard')->middleware('role:admin');  
     Route::resource('/category', MasterCategoryProject::class)->middleware('role:admin');
     Route::resource('/jabatan', MasterJabatanMember::class)->middleware('role:admin');
     Route::resource('/member',MemberController::class)->middleware('role:admin');
     Route::resource('/project',ProjectController::class)->middleware('role:admin');
     Route::delete('/image/{id}/delete', [ProjectController::class, 'destroyImage'])->name('image.destroy');
+    // contact
+    Route::get('/contact', [ContactController::class, 'contact'])->name('contact.index')->middleware('role:admin');
 
 });    
 

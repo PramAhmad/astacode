@@ -112,7 +112,7 @@
                     <div class="preview-area">
                         @if ($prev_project)                     
                         <div class="preview-item">
-                            <img src="{{$next_project->firstimage->path}}"  width="67px" alt="img">
+                            <img src="{{$prev_project->firstimage->path}}"  width="67px" alt="img">
                             <div class="content">
                                 <h3>
                                     <a href="{{ route('frontend.detail.project', $prev_project->id) }}">
