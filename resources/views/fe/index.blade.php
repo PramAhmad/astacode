@@ -160,12 +160,12 @@
     <div class="container">
         <div class="about-wrapper style-2">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-6 ">
                     <div class="about-image-items">
                         <div class="circle-shape">
                             <img src="{{asset('fe/assets/img/about/circle.png')}}" alt="shape-img">
                         </div>
-                        <div class="counter-shape float-bob-y">
+                        <div class="tw-translate-y-28 counter-shape float-bob-y">
                             <div class="icon">
                                 <img src="{{asset('fe/assets/img/about/icon-1.svg')}}" alt="icon-img">
                             </div>
@@ -174,10 +174,9 @@
                                 <p>Of Experience</p>
                             </div>
                         </div>
-                        <div class="about-image-1 bg-cover wow fadeInLeft" data-wow-delay=".3s" style="background-image: url('{{asset('fe/assets/img/about/03.png')}}');">
-                            <div class="about-image-2 wow fadeInUp" data-wow-delay=".5s">
-                                <img src="{{asset('fe/assets/img/about/04.jpg')}}" alt="about-img">
-                            </div>
+                        <div class="about-img-1 bg-cover wow fadeInLeft" data-wow-delay=".3s" >
+                            <img src="{{asset('fe/assets/img/team/about1.png')}}"  alt="about-img" style="background-position: center">
+                           
                         </div>
                     </div>
                 </div>
@@ -221,13 +220,7 @@
                                     <i class="fa-solid fa-arrow-right-long"></i>
                                 </a>
                             </div>
-                            <div class="author-image wow fadeInUp" data-wow-delay=".7s">
-                                <img src="{{asset('fe/assets/img/about/author.png')}}" alt="author-img">
-                                <div class="content">
-                                    <h6>Galih Pangestu</h6>
-                                    <p>Co, Founder</p>
-                                </div>
-                            </div>
+                          
                         </div>
                     </div>
                 </div>
@@ -364,19 +357,22 @@
                             <div class="project-image">
                                 <img src="{{$item->firstimage->path}}" alt="project-img">
                             </div>
+                            <a href="{{route('frontend.detail.project',$item->id)}}">
                             <div class="tw-w-full">
-                                <div class="project-content tw-bg-gray-100 hover:tw-bg-gray-200 tw-pt-10 tw-flex tw-justify-between tw-items-center tw-px-4 tw-pb-4 group">
-                                    <div class="group-hover:tw-text-white">
-                                        <p class="tw-text-2xl tw-text-sky-500 tw-font-semibold group-hover:tw-text-white">{{$item->name}}</p>
-                                        <h4>
-                                            <a href="{{route('frontend.detail.project',$item->id)}}" class="group-hover:tw-text-white">{{$item->category_project->name}}</a>
-                                        </h4>
+
+                                    <div class="project-content tw-bg-gray-100 hover:tw-bg-gray-200 tw-pt-10 tw-flex tw-justify-between tw-items-center tw-px-4 tw-pb-4 group">
+                                        <div class="group-hover:tw-text-white">
+                                            <p class="tw-text-2xl tw-text-sky-500 tw-font-semibold group-hover:tw-text-white">{{$item->name}}</p>
+                                            <h4>
+                                                <a href="{{route('frontend.detail.project',$item->id)}}" class="group-hover:tw-text-white">{{$item->category_project->name}}</a>
+                                            </h4>
+                                        </div>
+                                        <a href="{{route('frontend.detail.project',$item->id)}}" class="tw-text-right tw-ml-auto tw-text-xl tw-transition tw-transform hover:tw-translate-x-1 group-hover:tw-text-white">
+                                            <i class="fa-solid fa-arrow-right group-hover:tw-text-white"></i>
+                                        </a>
                                     </div>
-                                    <a href="{{route('frontend.detail.project',$item->id)}}" class="tw-text-right tw-ml-auto tw-text-xl tw-transition tw-transform hover:tw-translate-x-1 group-hover:tw-text-white">
-                                        <i class="fa-solid fa-arrow-right group-hover:tw-text-white"></i>
-                                    </a>
                                 </div>
-                            </div>
+                            </a>
                             
                             
                         </div>
@@ -395,36 +391,43 @@
 <div class="brand-section fix section-padding">
     <div class="container">
         <div class="brand-wrapper">
-            <h6 class="text-center wow fadeInUp" data-wow-delay=".3s">100+ Brand Trust Us</h6>
-            <div class="swiper brand-slider">
-                <div class="swiper-wrapper">
+            <h6 class="text-center wow fadeInUp" data-wow-delay=".3s">Our Client</h6>
+            <div class="swiper brand-slider tw-flex tw-items-center tw-align-middle">
+                <div class="swiper-wrapper tw-my-auto">
                     <div class="swiper-slide">
-                        <div class="brand-image">
-                            <img src="{{asset('fe/assets/img/brand.png')}}" alt="brand-img">
+                        <div class="brand-image tw-flex tw-justify-center tw-items-center tw-h-full">
+                            <img class="tw-object-contain tw-h-24" src="{{asset('fe/assets/img/logo/pertamina.png')}}" alt="brand-img">
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="brand-image">
-                            <img src="{{asset('fe/assets/img/brand.png')}}" alt="brand-img">
+                        <div class="brand-image tw-flex tw-justify-center tw-items-center tw-h-full">
+                            <img class="tw-object-contain tw-h-24" src="{{asset('fe/assets/img/logo/bni.png')}}" alt="brand-img">
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="brand-image">
-                            <img src="{{asset('fe/assets/img/brand.png')}}" alt="brand-img">
+                        <div class="brand-image tw-flex tw-justify-center tw-items-center tw-h-full">
+                            <img class="tw-object-contain tw-h-24" src="{{asset('fe/assets/img/logo/papan.png')}}" alt="brand-img">
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="brand-image">
-                            <img src="{{asset('fe/assets/img/brand.png')}}" alt="brand-img">
+                        <div class="brand-image tw-flex tw-justify-center tw-items-center tw-h-full">
+                            <img class="tw-object-contain tw-h-24" src="{{asset('fe/assets/img/logo/baznas.png')}}" alt="brand-img">
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="brand-image">
-                            <img src="{{asset('fe/assets/img/brand.png')}}" alt="brand-img">
+                        <div class="brand-image tw-flex tw-justify-center tw-items-center tw-h-full">
+                            <img class="tw-object-contain tw-h-24" src="{{asset('fe/assets/img/logo/saraf.png')}}" alt="brand-img">
                         </div>
                     </div>
+                    <div class="swiper-slide">
+                        <div class="brand-image tw-flex tw-justify-center tw-items-center tw-h-full">
+                            <img class="tw-object-contain tw-h-24" src="{{asset('fe/assets/img/logo/layton.png')}}" alt="brand-img">
+                        </div>
+                    </div>
+                  
                 </div>
             </div>
+            
         </div>
     </div>
 </div>
@@ -445,72 +448,31 @@
             </a>
         </div>
         <div class="row">
+            @foreach ($member as $item)
+                
             <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
                 <div class="team-card-items">
                     <div class="team-image">
-                        <img src="{{asset('fe/assets/img/team/team1.png')}}" alt="team-img">
+                        <img src="{{asset($item->photo)}}" alt="team-img" style="width: 370px">
                         <div class="social-profile">
                             <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
                             <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="{{$item->facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="{{$item->twitter}}"><i class="fa-brands fa-twitter"></i></a></li>
+                                <li><a href="{{$item->linkedin}}"><i class="fab fa-linkedin-in"></i></a></li>
                                 
                             </ul>
                         </div>
                     </div>
                     <div class="team-content text-center">
                         <h3>
-                            <a href="team-details.html">Galih Pangestu</a>
+                            <a href="team-details.html">{{$item->name}}</a>
                         </h3>
-                        <p>Chief Executive Officer (CEO)</p>
+                        <p>{{$item->jabatan->name}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                <div class="team-card-items">
-                    <div class="team-image">
-                        <img src="{{asset('fe/assets/img/team/team2.png')}}" alt="team-img">
-                        <div class="social-profile">
-                            <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h3>
-                            <a href="team-details.html">Muhammad Hisyam</a>
-                        </h3>
-                        <p>Chief Financial Officer - CFO</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                <div class="team-card-items">
-                    <div class="team-image">
-                        <img src="{{asset('fe/assets/img/team/team3.png')}}" alt="team-img">
-                        <div class="social-profile">
-                            <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="team-content text-center">
-                        <h3>
-                            <a href="team-details.html">Dianne Russell</a>
-                        </h3>
-                        <p>Marketing manager</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -682,7 +644,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="contact-image wow fadeInUp" data-wow-delay=".4s">
-                        <img src="{{asset('fe/assets/img/team/galihceo.png')}}" alt="contact-img" width="594px" height="745px" class="tw--translate-x-1/4">
+                        <img src="{{asset('fe/assets/img/hero/cs.png')}}" alt="contact-img" class="tw--translate-x-1/4">
                         <div class="cricle-shape">
                             <img src="{{asset('fe/assets/img/circle-shape.png')}}" alt="shape-img">
                         </div>
@@ -735,72 +697,7 @@
 </section>
 
 <!--<< Testimonial Section Start >>-->
-<section class="tesimonial-section-2 pb-0 section-padding bg-cover tw-bg-sky-600" >
-    {{-- style="background-image: url('{{asset('fe/assets/img/testimonial/bg.jpg')}}');" --}}
-    <div class="container">
-        <div class="section-title-area">
-            <div class="section-title">
-                <span class="text-white wow fadeInUp">Testimonials</span>
-                <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">
-                    We Prominent Truly Trusted <br>
-                    IT Business Solutions
-                </h2>
-            </div>
-            <div class="array-button wow fadeInUp" data-wow-delay=".5s">
-                <button class="array-prev border-white"><i class="fal fa-arrow-right"></i></button>
-                <button class="array-next"><i class="fal fa-arrow-left"></i></button>
-            </div>
-        </div>
-        <div class="swiper testimonial-slider-2">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="testimonial-box-items">
-                       
-                        <div class="client-items">
-                            <div class="client-image bg-cover" style="background-image: url('{{asset('fe/assets/img/testimonial/02.jpg')}}');"></div>
-                            <div class="client-content">
-                                <h4>Kathryn Murphy</h4>
-                                <p>Web Designer</p>
-                                <div class="star">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>
-                            Consectetur adipiscing elit. Integer nunc viverra laoreet est the is porta pretium metus aliquam eget maecenas porta is nunc viverra Aenean pulvinar maximus leo ”
-                        </p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="testimonial-box-items">
-                       
-                        <div class="client-items">
-                            <div class="client-image bg-cover" style="background-image: url('{{asset('fe/assets/img/testimonial/03.jpg')}}');"></div>
-                            <div class="client-content">
-                                <h4>Albert Flores</h4>
-                                <p>Medical Assistant</p>
-                                <div class="star">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star color-text"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p>
-                            Consectetur adipiscing elit. Integer nunc viverra laoreet est the is porta pretium metus aliquam eget maecenas porta is nunc viverra Aenean pulvinar maximus leo ”
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 
 

@@ -58,7 +58,7 @@ class ProjectController extends Controller
             'category_project_id' => $validated['category_project_id'],
             'created_at' => now(),
         ]);
-//    bulk insert image
+//    bulk insert foto cuy
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $name = $image->getClientOriginalName();

@@ -3,28 +3,33 @@
 <div class="main-panel">
     <div class="content-wrapper">
       <div class="page-header">
-        <h3 class="page-title"> Project List </h3>
+        <h3 class="page-title"> member List </h3>
         <nav aria-label="breadcrumb">
           {{-- tambah --}}
-          <a href="{{route('project.create')}}" class="btn btn-primary">tambah</a>
+          <a href="{{route('member.create')}}" class="btn btn-primary">tambah</a>
         </nav>
       </div>
  
+      @if (session('success'))
+      <div class="alert alert-success">
+        {{session('success')}}
+      </div>
+      @endif
        <div class="row">
 <div class="col-lg-12 grid-margin stretch-card">
+  {{-- if session --}}
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Astacode Project</h4>
+        <h4 class="card-title">Astacode Member</h4>
       
         </p>
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>Nama Project</th>
-              <th>Foto</th>
-              <th>Kategori Projet</th>
-              <th>Nama Client</th>
-              
+              <th>Nama Member</th>
+              <th>Photo</th>
+              <th>Jabatan</th>
+              <th>About</th>
               <th>action</th>
             </tr>
           </thead>
@@ -32,14 +37,14 @@
             @foreach ($data as $item)
             <tr>
               <td>{{$item->name}}</td>
-
               <td>
-                @if ($item->firstimage)  
-                <img src="{{asset($item->firstimage->path)}}" alt="" width="100%">
+                @if ($item->photo)  
+                <img src="{{asset($item->photo)}}" alt="" width="100%">
                 @endif
             </td>
-              <td>{{$item->category_project->name}}</td>
-              <td>{{$item->client_name}}</td>
+              <td>{{$item->jabatan->name}}</td>
+
+              <td>{{Str::limit($item->about, 50, '...')}}</td>
               <td>
                 {{-- 3 navigation use drop down --}}
                 <a class="nav-link " id="actionDropDwon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,10 +55,10 @@
                     <button class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#detailModal{{$item->id}}">
                         <i class="mdi mdi-cached me-2 text-success"></i> Detail
                     </button>
-                    <a class="dropdown-item" href="{{route('project.edit', $item->id)}}">
+                    <a class="dropdown-item" href="{{route('member.edit', $item->id)}}">
                       <i class="mdi mdi-cached me-2 text-success"></i> Edit
                         </a>
-                    <a class="dropdown-item" href="{{route('project.destroy', $item->id)}}" data-confirm-delete="true">
+                    <a class="dropdown-item" href="{{route('member.destroy', $item->id)}}" data-confirm-delete="true">
                         <i class="mdi mdi-delete me-2 text-danger"></i> Delete
                     </a>
                     </div>
@@ -76,43 +81,46 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="detailModalLabel">Detail Project</h5>
+              <h5 class="modal-title" id="detailModalLabel">Detail member</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body
             ">
               <div class="row">
                 <div class="col-md-12">
-                @if ($item->images)
-                <div id="carouselExampleControls{{$item->id}}" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        @foreach ($item->images as $key => $image)
-                        <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
-                            <img src="{{asset($image->path)}}" class="d-block w-100" alt="...">
-                        </div>
-                        @endforeach
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls{{$item->id}}" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls{{$item->id}}" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>    
-              @endif
+                  <img src="{{asset($item->photo)}}" alt="" width="100%">
                 </div>
                 <div class="col-md-12 mt-4">
                   <h3>{{$item->name}}</h3>
-                  <p>{{$item->client_name}}</p>
-                  <p>{{$item->client_city}}</p>
-                  <p>{{$item->category_project->name}}</p>
-                  <h3>description</h3>
-                  <p>{{$item->description_project}}</p>
-                  <h3>Our Challenge</h3>
-                  <p>{{$item->challenge}}</p>
-                    <h3>Our Result</h3>
-                    <p>{{$item->description_result}}</p>
+                  <p>{{$item->jabatan->name}}</p>
+                  <p>{{$item->about}}</p>
+                  <h4>Education</h4>
+                  @foreach ($item->education as $edu)
+                  <p>{{$edu->name}} {{$edu->from}} - {{$edu->to}} {{$edu->degree}}</p>
+                  <p>{{$edu->description}}</p>
+                  @endforeach
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a href="{{$item->facebook}}">
+                        <i class="mdi mdi-facebook"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="{{$item->instagram}}">
+                        <i class="mdi mdi-instagram"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="{{$item->linkedin}}">
+                        <i class="mdi mdi-linkedin"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="{{$item->twitter}}">
+                        <i class="mdi mdi-twitter"></i>
+                      </a>
+                  </ul>
+
                     <p>{{$item->created_at}}</p>
 
                 </div>

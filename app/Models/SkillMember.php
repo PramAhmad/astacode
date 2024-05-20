@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class SkillMember extends Model
 {
     use HasFactory;
+    protected $fillable = ['member_id','name','percentage'];
 }

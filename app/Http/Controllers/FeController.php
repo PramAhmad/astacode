@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Member;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,7 @@ class FeController extends Controller
     public function index()
     {
         $data["project"] = Project::with('category_project','firstimage')->get();
-    
+        $data["member"] = Member::orderBy('id','asc')->with('skillmember','jabatan','education')->limit(3)->get();
         return view('fe.index', $data);
     }
     public function project()

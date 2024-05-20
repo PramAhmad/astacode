@@ -80,9 +80,6 @@ class MasterJabatanMember extends Controller
         return redirect()->route('jabatan.index')->with('success', 'Data has been updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         try {

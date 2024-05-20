@@ -964,9 +964,9 @@ span {
 }
 .brand-wrapper .brand-image {
   text-align: center;
-  filter: grayscale(100%);
+  /* filter: grayscale(100%); */
   transition: all 0.4s ease-in-out;
-  opacity: 0.4;
+  opacity: 100;
 }
 .brand-wrapper .brand-image:hover {
   filter: initial;
@@ -974,7 +974,7 @@ span {
 }
 .brand-wrapper .swiper-slide.swiper-slide-active .brand-image {
   filter: initial;
-  opacity: 1;
+  opacity: 100;
 }
 
 .brand-wrapper-2 {
