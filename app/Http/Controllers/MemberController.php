@@ -57,7 +57,7 @@ class MemberController extends Controller
             'photo' => $url,
             'created_at' => now(),
         ]);
-        if($request->has('skills')){
+        if($request->has('skills') != null){
             foreach($request->skills as $skill){
                 SkillMember::create([
                     'member_id' => $member->id,
@@ -66,7 +66,7 @@ class MemberController extends Controller
                 ]);
             }
         }
-        if($request->has('educations')){
+        if($request->has('educations') != null){
             foreach($request->educations as $education){
                 EducationMember::create([
                     'member_id' => $member->id,
@@ -91,13 +91,15 @@ class MemberController extends Controller
     public function edit(string $id)
     {   
         $data['jabatan'] = Jabatan::orderBy('created_at', 'asc')->get();
-        $data['member'] = Member::find($id)->with('skillmember','jabatan','education')  ->first();
+        $data['member'] = Member::where('id',$id)->with('skillmember','jabatan','education')->first();
         return view('admin.member.edit',$data);
     }
 
   
     public function update(Request $request, string $id)
-    {
+    {   
+   
+        // dd($request->all()); 
         $validated = $request->validate([
             'name' => 'required | min:3 | max:255 |string',
             'jabatan_id' => 'required',
@@ -127,25 +129,33 @@ class MemberController extends Controller
             'photo' => $url,
             'updated_at' => now(),
         ]);
-        if($request->has('skills')){
-            foreach($request->skills as $skill){
-                SkillMember::create([
-                    'member_id' => $member->id,
-                    'name' => $skill['name'],
-                    'percentage' => $skill['percentage'],
-                ]);
-            }
+       
+
+        // update skill
+
+       if ($request->has('skills')) {
+        foreach ($request->skills as $skill) {
+            $member->skillmember()->updateOrCreate([
+                'name' => $skill['name'],
+            ], [
+                'percentage' => $skill['percentage'],
+            ]);
         }
-        if($request->has('educations')){
+    }
+        // update education
+        if($request->has('educations') != null){
             foreach($request->educations as $education){
-                EducationMember::create([
-                    'member_id' => $member->id,
-                    'name' => $education['name'],
-                    'from' => $education['from'], 
-                    'to' => $education['to'],
-                    'degree'=> $education['degree'],
-                    'description' => $education["degree"],
-                ]);
+                EducationMember::updateOrCreate(
+                    ['id' => $education['id']],
+                    [
+                        'member_id' => $member->id,
+                        'name' => $education['name'],
+                        'from' => $education['from'], 
+                        'to' => $education['to'],
+                        'degree'=> $education['degree'],
+                        'description' => $education["desc"],
+                    ]
+                );
             }
         }
         return redirect()->route('member.index')->with('success','Data Berhasil Diubah');

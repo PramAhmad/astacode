@@ -7,7 +7,7 @@
         <mcharset="UTF-8">
         <meta eta name="author" content="gramentheme">
         <meta name="description" content="Infotek - IT Solution & Technology HTML Template">
-        <title>Infotek - IT Solution & Technology HTML Template</title>
+        <title>Astacode - It Company</title>
         <link rel="shortcut icon" href="{{asset('fe/assets/img/favicon.svg')}}">
         <link rel="stylesheet" href="{{asset('fe/assets/css/bootstrap.min.css')}}">
         <link rel="styesheet" href="{{asset('fe/assets/css/all.min.css')}}">
@@ -118,22 +118,22 @@
 
         <!-- Header Section Start -->
         <header class="header-section-2">
-            <div class="header-top-section top-style-2 fix">
-                <div class="container-fluid">
-                    <div class="header-top-wrapper style-2">
-                        <ul class="contact-list">
-                            <li>
-                                <i class="far fa-envelope"></i>
-                                <a href="mailto:info@example.com" class="link">info@example.com</a>
+            <div class="header-top-section top-style-2 fix tw-px-10">
+                <div class="tw-container ">
+                    <div class="header-top-wrapper style-2 tw-flex tw-justify-between tw-items-center">
+                        <ul class="contact-list tw-flex tw-space-x-4">
+                            <li class="tw-flex tw-items-center">
+                                <i class="far fa-envelope tw-mr-2"></i>
+                                <a href="mailto:astacode.mng@gmail.com " class="link">astacode.mng@gmail.com </a>
                             </li>
-                            <li>
-                                <i class="fa-solid fa-phone-volume"></i>
-                                <a href="tel:2086660112">+208-666-0112</a>
+                            <li class="tw-flex tw-items-center">
+                                <i class="fa-solid fa-phone-volume tw-mr-2"></i>
+                                <a href="tel:+62 853-1771-3639">+62 853-1771-3639</a>
                             </li>
                         </ul>
-                        <div class="top-right">
-                            <div class="social-icon d-flex align-items-center">
-                                <span>Follow Us:</span>
+                        <div class="top-right tw-flex tw-items-center">
+                            <span class="tw-mr-2">Follow Us:</span>
+                            <div class="social-icon tw-flex tw-space-x-2">
                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
                                 <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -143,67 +143,46 @@
                     </div>
                 </div>
             </div>
-            <div id="header-sticky" class="header-2">
-                <div class="main-logo">
-                    <a href="index.html">
-                    <img src="{{asset('fe/assets/img/logo/logo.png')}}" alt="logo-image">
-                    </a>
-                </div>
-                <div class="container-fluid">
-                    <div class="mega-menu-wrapper">
-                        <div class="header-main">
-                            <div class="logo d-none">
-                                <a href="index.html" class="header-logo">
-                                    <img src="{{asset('fe/assets/img/logo/logo.png')}}" width="130px"  alt="logo-img">
+            <div class=" tw-sticky tw-top-0 tw-bg-white tw-z-50 tw-shadow">
+                <div class="mega-menu-wrapper tw-container">
+                    <div class="header-main tw-flex tw-justify-between tw-items-center tw-py-4">
+                        <div class="logo ">
+                            <a href="index.html" class="header-logo ">
+                                <img src="{{asset('fe/assets/img/logo/logo.png')}}" width="130px" alt="logo-img" class="tw-w-32">
+                            </a>
+                        </div>
+                        <div class="header-left tw-flex-grow">
+                            <div class="mean__menu-wrapper">
+                                <div class="main-menu">
+                                    <nav id="mobile-menu">
+                                        <ul class="tw-flex tw-space-x-4">
+                                            <li>
+                                                <a href=""></a>
+                                            </li>
+                                            <li class="">
+                                                <a href="{{route('frontend.index')}}">Home</a>
+                                            </li>
+                                            <li><a href="/#about">About</a></li>
+                                            <li><a href="/#service">Services</a></li>
+                                            <li><a href="/#project">Projects</a></li>
+                                            <li><a href="/#team">Team</a></li>
+                                            <li><a href="/#blog">Blog</a></li>
+                                            <li><a href="/#contact">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-right tw-flex tw-items-center tw-space-x-4">
+                            <div class="header-button">
+                                <a href="https://wa.me/085317713639" class="tw-py-3 tw-px-5 tw-rounded-md tw-text-white tw-font-semibold tw-bg-sky-500 tw-flex tw-items-center tw-space-x-2">
+                                    <span>free Consultancy</span>
+                                    <i class="fa-solid fa-arrow-right-long"></i>
                                 </a>
                             </div>
-                            <div class="header-left">
-                                <div class="mean__menu-wrapper">
-                                    <div class="main-menu">
-                                        <nav id="mobile-menu">
-                                            <ul>
-                                                <li class="has-dropdown active menu-thumb">
-                                                    <a href="{{route('frontend.index')}}">
-                                                    Home 
-                                                 
-                                                    
-                                                </li>
-                                                <li>
-                                                    <a href="#about">About</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#service">Services</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#project">Projects</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#team">Team</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#blog">Blog</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#contact">Contact</a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="header-right d-flex justify-content-end align-items-center">
-                             <div class="header-button">
-                                    <a href="contact.html" class="tw-py-3 tw-px-5 tw-rounded-md tw-text-white tw-font-semibold  tw-bg-sky-500">
-                                        <span>
-                                            free Consultancy
-                                            <i class="fa-solid fa-arrow-right-long"></i>
-                                        </span>
-                                     </a>
-                                </div>
-                                <div class="header__hamburger d-lg-none my-auto">
-                                    <div class="sidebar__toggle">
-                                        <i class="fas fa-bars"></i>
-                                    </div>
+                            <div class="header__hamburger d-lg-none my-auto">
+                                <div class="sidebar__toggle">
+                                    <i class="fas fa-bars"></i>
                                 </div>
                             </div>
                         </div>
@@ -211,7 +190,7 @@
                 </div>
             </div>
         </header>
-
+        
        
 
         @yield('content')
@@ -235,9 +214,8 @@
                                 </div>
                                 <div class="footer-content">
                                     <p>
-                                        Phasellus ultricies aliquam volutpat 
-                                        ullamcorper laoreet neque, a lacinia
-                                        curabitur lacinia mollis
+                                        We Are Increasing Business Success With Technology
+
                                     </p>
                                     <div class="social-icon d-flex align-items-center">
                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -255,29 +233,24 @@
                                 </div>
                                 <ul class="list-area">
                                     <li>
-                                        <a href="about.html">
+                                        <a href="{{route('frontend.index')}}">
                                             <i class="fa-solid fa-chevron-right"></i>
-                                            Infotech About
+                                           Home
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="service.html">
+                                        <a href="{{route('frontend.project')}}">
                                             <i class="fa-solid fa-chevron-right"></i>
-                                            Our Services
+                                            Project
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="news.html">
+                                        <a href="{{route('frontend.member')}}">
                                             <i class="fa-solid fa-chevron-right"></i>
-                                            Our Blogs
+                                            Member
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="faq.html">
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                            FAQ’S
-                                        </a>
-                                    </li>
+                               
                                     <li>
                                         <a href="contact.html">
                                             <i class="fa-solid fa-chevron-right"></i>
@@ -292,85 +265,56 @@
                                 <div class="widget-head">
                                     <h3>IT Solution</h3>
                                 </div>
+
+
                                 <ul class="list-area">
-                                    <li>
-                                        <a href="service-details.html">
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                            IT Management
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="service-details.html">
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                            Web Development
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="service-details.html">
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                            Cyber Security
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="service-details.html">
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                            SEO Optimization
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="service-details.html">
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                            App Development
-                                        </a>
-                                    </li>
+                                    @foreach (App\Models\CategoryProject::all() as $item)
+                                        
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="{{ route('frontend.category.project', ['cid' => $item->id]) }}">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    {{ $item->name }}
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                    
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
+
                         <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".7s">
                             <div class="single-footer-widget style-margin">
                                 <div class="widget-head">
-                                    <h3>Recent Posts</h3>
+                                    <h3>Recent Project</h3>
                                 </div>
+                                @foreach (App\Models\Project::limit(2)->with('category_project','firstimage')->get() as $item)              
                                 <div class="recent-post-area">
                                     <div class="recent-post-items">
                                         <div class="thumb">
-                                            <img src="{{asset('fe/assets/img/news/pp1.jpg')}}" alt="post-img">
+                                            <img src="{{asset($item->firstimage->path)}}" alt="post-img">
                                         </div>
                                         <div class="content">
                                             <ul class="post-date">
                                                 <li>
                                                     <i class="fa-solid fa-calendar-days me-2"></i>
-                                                    20 Feb, 2024
+                                                    {{$item->created_at}}
                                                 </li>
                                             </ul>
                                             <h6>
-                                                <a href="news-details.html">
-                                                    Top 5 Most Famous <br>
-                                                    Technology Trend In 2024
+                                                <a href="{{route('frontend.detail.project',$item->id)}}">
+                                                   {{$item->name}} <br>
+                                                    {{$item->category_project->name}}
                                                 </a>
                                             </h6>
                                         </div>
                                     </div>
-                                    <div class="recent-post-items mb-0">
-                                        <div class="thumb">
-                                            <img src="{{asset('assets/img/news/pp2.jpg')}}" alt="post-img">
-                                        </div>
-                                        <div class="content">
-                                            <ul class="post-date">
-                                                <li>
-                                                    <i class="fa-solid fa-calendar-days me-2"></i>
-                                                    15 Dec, 2024
-                                                </li>
-                                            </ul>
-                                            <h6>
-                                                <a href="news-details.html">
-                                                    The Surfing Man Will Blow <br>
-                                                    Your Mind
-                                                </a>
-                                            </h6>
-                                        </div>
-                                    </div>
+                                 
                                 </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -380,7 +324,7 @@
                 <div class="container">
                     <div class="footer-wrapper d-flex align-items-center justify-content-between">
                         <p class="wow fadeInLeft color-2" data-wow-delay=".3s">
-                            © All Copyright 2024 by <a href="index.html">Infotech</a>
+                            © All Copyright 2024 by <a href="/#about">Astacode
                         </p>
                         <ul class="footer-menu wow fadeInRight" data-wow-delay=".5s">
                             <li>

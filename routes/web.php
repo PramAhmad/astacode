@@ -17,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[FeController::class,'index'])->name('frontend.index');
 Route::get('/project',[FeController::class,'project'])->name('frontend.project');
 Route::get('/project/{id}',[FeController::class,'detailProject'])->name('frontend.detail.project');
-
+Route::get('/project/category/{cid}', [FeController::class, 'categoryProject'])->name('frontend.category.project');
 Route::get('/member',[FeController::class,'member'])->name('frontend.member');
+Route::get("/member/{id}",[FeController::class,'detailMember'])->name('frontend.detail.member');
+Route::post('/contact',[ContactController::class,'store'])->name('contact.store');
 // route auth
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'storeLogin'])->name('login.store');

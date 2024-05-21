@@ -86,6 +86,7 @@
             </div>
                 <button type="button" id="add-skill" class="btn btn-info mb-5">+</button>
                  <div id="education-container">
+                    
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group education-row">

@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('contants', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name',40);
+            $table->string('email',40);
+            $table->string('wa',20);
+            $table->text('message');
         });
     }
 
