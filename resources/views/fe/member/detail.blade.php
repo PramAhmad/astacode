@@ -63,7 +63,6 @@
                     <p class="mt-3">
                         {{$item->description}}
                     </p>
-                  
                 </div>
                 @endforeach
             @endif

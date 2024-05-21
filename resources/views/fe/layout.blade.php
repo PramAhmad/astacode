@@ -24,6 +24,26 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/regular.min.css" integrity="sha512-KYEnM30Gjf5tMbgsrQJsR0FSpufP9S4EiAYi168MvTjK6E83x3r6PTvLPlXYX350/doBXmTFUEnJr/nCsDovuw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css" integrity="sha512-Hp+WwK4QdKZk9/W0ViDvLunYjFrGJmNDt6sCflZNkjgvNq9mY+0tMbd6tWMiAlcf1OQyqL4gn2rYp7UsfssZPA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         @vite('resources/css/app.css')
+        <style>
+            .floating {
+                position: fixed;
+                width: 60px;
+                height: 60px;
+                bottom: 40px;
+                right: 40px;
+                background-color: #25d366;
+                color: #fff;
+                border-radius: 50px;
+                text-align: center;
+                font-size: 30px;
+                box-shadow: 2px 2px 3px #999;
+                z-index: 100;
+                }
+
+                .fab-icon {
+                margin-top: 16px;
+                }
+        </style>
     </head>
     <body>
 
@@ -252,10 +272,7 @@
                                     </li>
                                
                                     <li>
-                                        <a href="contact.html">
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                            Contact Us
-                                        </a>
+                                        
                                     </li>
                                 </ul>
                             </div>
@@ -345,6 +362,11 @@
                 </a>
             </div>
         </footer>
+        {{-- float icon wa using tailwind prefix tw---}}
+        <a href="https://wa.me/085317713639" class="floating" target="_blank">
+            <i class="fab fa-whatsapp fab-icon"></i>
+            </a>
+        
 
         <!--<< All JS Plugins >>-->
         <script src="{{asset('fe/assets/js/jquery-3.7.1.min.js')}}"></script>
