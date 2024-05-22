@@ -16,14 +16,17 @@
             @foreach ($project as $item)
                 
             <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                <div class="project-items">
-                    <div class="project-image">
-                        <img src="{{$item->firstimage->path}}" alt="project-img">
-                        <div class="project-content">
-                            <a href="{{route('frontend.detail.project',$item->id)}}">{{$item->category_project->name}}</a>
-                            <h4>
-                                <a href="project-details.html">{{$item->name}}</a>
-                            </h4>
+                <div class="tw-bg-gray-100 tw-p-4 tw-border tw-border-gray-200 tw-rounded-md">
+
+                    <div class="project-items">
+                        <div class="project-image">
+                            <img src="{{$item->firstimage->path}}" alt="project-img">
+                            <div class="project-content">
+                                <a href="{{route('frontend.detail.project',$item->id)}}">{{$item->category_project->name}}</a>
+                                <h4>
+                                    <a href="project-details.html">{{$item->name}}</a>
+                                </h4>
+                            </div>
                         </div>
                     </div>
                 </div>
