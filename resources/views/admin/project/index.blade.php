@@ -35,7 +35,8 @@
 
               <td>
                 @if ($item->firstimage)  
-                <img src="{{asset($item->firstimage->path)}}" alt="" width="100%">
+                {{-- img acces public --}}
+                <img src="{{asset($item->firstimage->path)}}" alt="" style="width: 50px">
                 @endif
             </td>
               <td>{{$item->category_project->name}}</td>
@@ -70,7 +71,7 @@
   </div>
 </div>
 </div>
-  {{-- modal element --}}
+
     @foreach ($data as $item)
     <div class="modal fade" id="detailModal{{$item->id}}" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
         <div class="modal-dialog">

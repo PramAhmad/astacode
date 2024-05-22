@@ -194,7 +194,7 @@
                             </div>
                         </div>
                         <div class="header-right tw-flex tw-items-center tw-space-x-4">
-                            <div class="header-button">
+                            <div class="header-button md:tw-block tw-hidden">
                                 <a href="https://wa.me/085317713639" class="tw-py-3 tw-px-5 tw-rounded-md tw-text-white tw-font-semibold tw-bg-sky-500 tw-flex tw-items-center tw-space-x-2">
                                     <span>free Consultancy</span>
                                     <i class="fa-solid fa-arrow-right-long"></i>

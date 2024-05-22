@@ -61,7 +61,7 @@
                         <div class="form-group preview">
                             @foreach ($project->images as $image)
                                 <div class="image-container">
-                                    <img src="{{ $image->path }}" alt="{{ $image->name }}" style="max-width: 100px;">
+                                    <img src="{{ asset($image->path) }}" alt="{{ $image->name }}" style="width: 100%;">
                                     <button type="button" class="badge badge-danger delete-button" data-id="{{ $image->id }}">X</button>
                                 </div>
                             @endforeach

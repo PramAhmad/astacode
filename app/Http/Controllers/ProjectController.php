@@ -63,11 +63,11 @@ class ProjectController extends Controller
             foreach ($request->file('images') as $image) {
                 $name = $image->getClientOriginalName();
                 $path = $image->storeAs('public/images', $name);
-                $url = Storage::url($path);
+                
                 ImageProject::create([
                     'project_id' => $project->id,
                     'name' => $name,
-                    'path' => $url,
+                    'path' => $path,
                     'created_at' => now(),
                 ]);
             }
@@ -101,6 +101,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $project = Project::findOrFail($id);
 
         $request->validate([
@@ -127,28 +128,31 @@ class ProjectController extends Controller
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $name = $image->getClientOriginalName();
-                $path = $image->storeAs('public/images', $name);
-                $url = Storage::url($path);
-
+                $destination = 'public/images/project';
+                // move
+                $image->move($destination, $name);
+                $path = $destination . '/' . $name;
                 ImageProject::create([
                     'project_id' => $project->id,
                     'name' => $name,
-                    'url' => $url,
+                    'path' => $path,
                 ]);
             }
         }
 
         return redirect()->route('project.edit', $project->id)->with('success', 'Project updated successfully');
     }
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(string $id)
     {
-        $project = Project::findOrFail($id);
-        $project->delete();
-        return redirect()->route('project.index')->with('success', 'Data has been deleted successfully');
-    }
+        try {
+            $project = Project::findOrFail($id);
+            $project->delete();
+            return redirect()->route('project.index')->with('success', 'Data has been deleted successfully');
+        } catch (\Exception $e) {
+            return redirect()->route('project.index')->with('error', 'Data cannot be deleted');
+        }
+   }
     public function destroyImage($id)
     {
         $image = ImageProject::findOrFail($id);

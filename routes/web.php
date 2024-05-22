@@ -2,12 +2,15 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FeController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\MasterCategoryProject;
 use App\Http\Controllers\MasterJabatanMember;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TechnologyController;
 use App\Models\CategoryProject;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,44 +24,27 @@ Route::get('/project/category/{cid}', [FeController::class, 'categoryProject'])-
 Route::get('/member',[FeController::class,'member'])->name('frontend.member');
 Route::get("/member/{id}",[FeController::class,'detailMember'])->name('frontend.detail.member');
 Route::post('/contact',[ContactController::class,'store'])->name('contact.store');
-// route auth
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+ 
+Route::group(['prefix'=> 'astacode2020'],function(){
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'storeLogin'])->name('login.store');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/create-account', [AuthController::class, 'createAccount'])->name('create.account');
+});
 
 // route group admnin
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard')->middleware('role:admin');  
+    Route::get('/dashboard', [DashboardController::class,'index'])->name('admin.dashboard')->middleware('role:admin');  
     Route::resource('/category', MasterCategoryProject::class)->middleware('role:admin');
     Route::resource('/jabatan', MasterJabatanMember::class)->middleware('role:admin');
     Route::resource('/member',MemberController::class)->middleware('role:admin');
     Route::resource('/project',ProjectController::class)->middleware('role:admin');
+    Route::resource('/service',ServiceController::class)->middleware('role:admin');
+    Route::resource('/tech',TechnologyController::class)->middleware('role:admin');
     Route::delete('/image/{id}/delete', [ProjectController::class, 'destroyImage'])->name('image.destroy');
+    // skill destroy
+    Route::delete('/skill/{id}/delete', [MemberController::class, 'destroySkill'])->name('skill.destroy');
     // contact
     Route::get('/contact', [ContactController::class, 'contact'])->name('contact.index')->middleware('role:admin');
 
 });    
 
-// route group template
-Route::group(['prefix' => 'template'], function () {
-    Route::get('/ui', function () {
-        return view('admin.ui');
-    })->name('admin.ui');
-    Route::get('/icons', function () {
-        return view('admin.icons');
-    })->name('admin.icons');
-    Route::get("/form",function () {
-        return view('admin.forms');
-    })->name('admin.form');
-    Route::get('/table', function () {
-        return view('admin.table');
-    })->name('admin.table');
-    Route::get('/chart', function () {
-        return view('admin.chart');
-    })->name('admin.chart');
-   
- 
-});

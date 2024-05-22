@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\CategoryProject;
 use App\Models\Member;
 use App\Models\Project;
+use App\Models\Services;
+use App\Models\Technology;
 use Illuminate\Http\Request;
 
 class FeController extends Controller
@@ -15,6 +17,8 @@ class FeController extends Controller
         $data["member"] = Member::orderBy('id','asc')->with('skillmember','jabatan','education')->limit(3)->get();
         $data["category_project"] = CategoryProject::all();
         $data['rencent_project'] = Project::with('category_project','firstimage')->limit(2)->get();
+        $data['service'] = Services::all();
+        $data["tech"] = Technology::all();
         return view('fe.index', $data);
     }
     public function project()

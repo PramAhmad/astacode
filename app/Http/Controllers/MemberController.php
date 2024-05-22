@@ -42,9 +42,9 @@ class MemberController extends Controller
         ]);
         // handle file upload
         $name = $request->photo->getClientOriginalName();
-        $path = $request->photo->storeAs('public/images/member',$name);
-        $url = Storage::url($path);
-
+        $destination = 'public/images/member';
+        $request->photo->move($destination,$name);
+        $url = $destination.'/'.$name;
         
         $member = Member::create([
             'name' => $validated['name'],
@@ -97,27 +97,33 @@ class MemberController extends Controller
 
   
     public function update(Request $request, string $id)
-    {   
-   
-        // dd($request->all()); 
+    {
+        // dd($request->all());
+            
+        // Validate the input
         $validated = $request->validate([
-            'name' => 'required | min:3 | max:255 |string',
+            'name' => 'required|min:3|max:255|string',
             'jabatan_id' => 'required',
             'about' => 'required',
             'facebook' => 'required',
             'instagram' => 'required',
             'linkedin' => 'required',
             'twitter' => 'required',
-            'photo' => 'image | mimes:jpeg,png,jpg,gif,svg | max:2048',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $member = Member::find($id);
-        if($request->hasFile('photo')){
+  
+        $member = Member::findOrFail($id);
+    
+        if ($request->hasFile('photo')) {
             $name = $request->photo->getClientOriginalName();
-            $path = $request->photo->storeAs('images/member',$name);
-            $url = Storage::url($path);
-        }else{
+            $destination = 'public/images/member';
+            $request->photo->move($destination, $name);
+            $url = $destination . '/' . $name;
+        } else {
             $url = $member->photo;
         }
+    
+        // Update member details
         $member->update([
             'name' => $validated['name'],
             'jabatan_id' => $validated['jabatan_id'],
@@ -129,43 +135,63 @@ class MemberController extends Controller
             'photo' => $url,
             'updated_at' => now(),
         ]);
-       
-
-        // update skill
-
-       if ($request->has('skills')) {
-        foreach ($request->skills as $skill) {
-            $member->skillmember()->updateOrCreate([
-                'name' => $skill['name'],
-            ], [
-                'percentage' => $skill['percentage'],
-            ]);
+        try{
+            // Update skills
+        if ($request->has('skills')) {
+            $skills = $request->input('skills', []);
+            foreach ($skills as $skill) {
+                $member->skillmember()->updateOrCreate(
+                    ['id' => $skill['id'] ?? null],
+                    ['name' => $skill['name'], 'percentage' => $skill['percentage']]
+                );
+            }
         }
-    }
-        // update education
-        if($request->has('educations') != null){
-            foreach($request->educations as $education){
+    
+        // Update education
+        if ($request->has('educations')) {
+            $educations = $request->input('educations', []);
+            foreach ($educations as $education) {
                 EducationMember::updateOrCreate(
-                    ['id' => $education['id']],
+                    ['id' => $education['id'] ?? null],
                     [
                         'member_id' => $member->id,
                         'name' => $education['name'],
-                        'from' => $education['from'], 
+                        'from' => $education['from'],
                         'to' => $education['to'],
-                        'degree'=> $education['degree'],
-                        'description' => $education["desc"],
+                        'degree' => $education['degree'],
+                        'description' => $education['desc'],
                     ]
                 );
             }
         }
-        return redirect()->route('member.index')->with('success','Data Berhasil Diubah');
-    }
+                
+      
+        }catch(\Exception $e){
+            return redirect()->back()->with('error', 'Data Gagal Diubah');
+        }
+        // kalo gada request skill dan education delete
+        if($request->has('skills') == null){
+            $member->skillmember()->delete();
+        }
+        if($request->has('educations') == null){
+            $member->education()->delete();
+        }
 
+
+        return redirect()->route('member.index')->with('success', 'Data Berhasil Diubah');
+    }
+    
    
     public function destroy(string $id)
     {
         $member = Member::find($id);
         $member->delete();
         return redirect()->route('member.index')->with('success','Data Berhasil Dihapus');    
+    }
+    public function destroySkill(string $id)
+    {
+        $skill = SkillMember::find($id);
+        $skill->delete();
+        return redirect()->back()->with('success','Data Berhasil Dihapus');
     }
 }

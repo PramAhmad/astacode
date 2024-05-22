@@ -229,23 +229,40 @@
               </div>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{{route('service.index')}}">
+                <span class="menu-title">Service Company</span>
+                <i class="mdi mdi-contacts menu-icon"></i>
+              </a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('tech.index')}}">
+                <span class="menu-title">Technology</span>
+                <i class="mdi mdi-pulse menu-icon"></i>
+              </a>
+            </li> 
+            <li class="nav-item">
               <a class="nav-link" href="{{route('project.index')}}">
                 <span class="menu-title">Project</span>
-                <i class="mdi mdi-contacts menu-icon"></i>
+                <i class="mdi mdi-cards menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('member.index')}}">
                 <span class="menu-title">Member Team</span>
-                <i class="mdi mdi-contacts menu-icon"></i>
+                <i class="mdi mdi-account-multiple-outline menu-icon"></i>
               </a>
             </li> 
+
+            {{-- signout --}}
             <li class="nav-item">
-              <a class="nav-link" href="{{route('contact.index')}}">
-                <span class="menu-title">Contact</span>
-                <i class="mdi mdi-contacts menu-icon"></i>
-              </a>
-            </li> 
+              <form action="{{url('logout')}}" method="POST">
+                @csrf
+                <button class="nav-link" type="submit">
+                  <span class="menu-title ">Signout</span>
+                  <i class="mdi mdi-logout menu-icon"></i>
+                </button>
+              </form>
+            </li>
             
           
           </ul>
