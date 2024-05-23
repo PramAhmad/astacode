@@ -39,11 +39,11 @@ class ServiceController extends Controller
             'description' => 'required',
             'icon' => 'required',
         ]);
-        // handle icon upload
-        $name = $request->icon->getClientOriginalName();
-        $path = $request->icon->storeAs('public/images/icon',$name);
-        $url = Storage::url($path);
-        
+        $name = time().'_'.$request->icon->getClientOriginalName();
+        $destination = 'public/images/icon';
+        $request->icon->move($destination,$name);
+        $url = $destination.'/'.$name;
+
         Services::create([
             'name' => $validated['name'],
             'description' => $validated['description'],
@@ -81,10 +81,11 @@ class ServiceController extends Controller
         ]);
         
         if ($request->hasFile('icon')) {
-            $name = $request->icon->getClientOriginalName();
-            $path = $request->icon->storeAs('public/images/icon', $name);
-            $url = Storage::url($path);
-            $icon = $url;
+            $name = time().'_'.$request->icon->getClientOriginalName();
+            $destination = 'public/images/icon';
+            $request->icon->move($destination,$name);
+            $icon = $destination.'/'.$name;
+ 
         } else {
             $icon = $request->old_icon;
         }

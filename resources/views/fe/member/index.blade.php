@@ -18,8 +18,10 @@
             <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
                 <div class="team-card-items">
                     <div class="team-image">
-                        <img src="{{asset($item->photo)}}" alt="team-img" style="width: 370px">
-                        <div class="social-profile">
+                        @if ($item->photo)  
+                            <img src="{{asset($item->photo)}}" alt="" style="width: 370px">
+                            @endif
+                     <div class="social-profile">
                             <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
                             <ul>
                                 <li><a href="{{$item->facebook}}"><i class="fab fa-facebook-f"></i></a></li>

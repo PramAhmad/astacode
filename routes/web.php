@@ -12,6 +12,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TechnologyController;
 use App\Models\CategoryProject;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -48,3 +49,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 });    
 
+Route::get("clear",function(){
+    // optimize
+    Artisan::call('optimize:clear');
+});

@@ -95,10 +95,7 @@
                                                 <a href="{{ route('tech.edit', $item->id) }}"
                                                     class="tw-py-2 tw-px-3 tw-font-semibold tw-bg-sky-500 tw-text-white tw-rounded-md hover:tw-text-white"
                                                     style="margin-right: 20px;">Edit</a>
-                                                <a href="{{ route('tech.destroy', $item->id) }}"
-                                                    class="tw-py-2 tw-px-3 tw-font-semibold tw-bg-rose-500 tw-text-white tw-rounded-md hover:tw-text-white"
-                                                    data-confirm-delete="true">Delete</a>
-                                            </div>
+                       </div>
                                         </td>
                                     </tr>
                                     @endforeach
