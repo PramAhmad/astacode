@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
- 
     <head>
+        <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <mcharset="UTF-8">
-        <meta eta name="author" content="gramentheme">
-        <meta name="description" content="Infotek - IT Solution & Technology HTML Template">
-        <title>Astacode - It Company</title>
-        <link rel="shortcut icon" href="{{asset('fe/assets/img/favicon.svg')}}">
-        <link rel="stylesheet" href="{{asset('fe/assets/css/bootstrap.min.css')}}">
-        <link rel="styesheet" href="{{asset('fe/assets/css/all.min.css')}}">
-        <link rel="stylesheet" href="{{asset('fe/assets/css/animate.css')}}">
-        <link rel="stylesheet" href="{{asset('fe/assets/css/magnific-popup.css')}}">
-        <link rel="stylesheet" href="{{asset('fe/assets/css/meanmenu.css')}}">
-        <link rel="stylesheet" href="{{asset('fe/assets/css/swiper-bundle.min.css')}}">
-        <link rel="stylesheet" href="{{asset('fe/assets/css/nice-select.css')}}">
-        <link rel="stylesheet" href="{{asset('fe/assets/css/main.css')}}">
-        <link rel="stylesheet" href="{{asset('fe/fa/css/font-awesome.min.css')}}">
+        <meta name="author" content="Astacode">
+        <meta property="og:image" content="{{ asset('fe/assets/img/favico.png') }}">
+        <meta name="description" content="Astacode - IT Company">
+        <title>Astacode - IT Company</title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="{{ asset('fe/assets/img/favico.png') }}">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="{{ asset('fe/assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('fe/assets/css/all.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('fe/assets/css/animate.css') }}">
+        <link rel="stylesheet" href="{{ asset('fe/assets/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('fe/assets/css/meanmenu.css') }}">
+        <link rel="stylesheet" href="{{ asset('fe/assets/css/swiper-bundle.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('fe/assets/css/nice-select.css') }}">
+        <link rel="stylesheet" href="{{ asset('fe/assets/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('fe/fa/css/font-awesome.min.css') }}">
+        <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css">
@@ -38,13 +42,13 @@
                 font-size: 30px;
                 box-shadow: 2px 2px 3px #999;
                 z-index: 100;
-                }
-
-                .fab-icon {
+            }
+            .fab-icon {
                 margin-top: 16px;
-                }
+            }
         </style>
     </head>
+    
     <body>
 
         <!-- Preloader Start -->
@@ -376,19 +380,12 @@
         <script src="{{asset('fe/assets/js/bootstrap.bundle.min.js')}}"></script>
         <!--<< Nice Select Js >>-->
         <script src="{{asset('fe/assets/js/jquery.nice-select.min.js')}}"></script>
-        <!--<< Waypoints Js >>-->
         <script src="{{asset('fe/assets/js/jquery.waypoints.js')}}"></script>
-        <!--<< Counterup Js >>-->
         <script src="{{asset('fe/assets/js/jquery.counterup.min.js')}}"></script>
-        <!--<< Swiper Slider Js >>-->
         <script src="{{asset('fe/assets/js/swiper-bundle.min.js')}}"></script>
-        <!--<< MeanMenu Js >>-->
         <script src="{{asset('fe/assets/js/jquery.meanmenu.min.js')}}"></script>
-        <!--<< Magnific Popup Js >>-->
         <script src="{{asset('fe/assets/js/jquery.magnific-popup.min.js')}}"></script>
-        <!--<< Wow Animation Js >>-->
         <script src="{{asset('fe/assets/js/wow.min.js')}}"></script>
-        <!--<< Main.js >>-->
         <script src="{{asset('fe/assets/js/main.js')}}"></script>
     </body>
 </html>

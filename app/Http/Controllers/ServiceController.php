@@ -40,7 +40,7 @@ class ServiceController extends Controller
             'icon' => 'required',
         ]);
         $name = time().'_'.$request->icon->getClientOriginalName();
-        $destination = 'public/images/icon';
+        $destination = 'images/icon';
         $request->icon->move($destination,$name);
         $url = $destination.'/'.$name;
 
@@ -82,6 +82,7 @@ class ServiceController extends Controller
         
         if ($request->hasFile('icon')) {
             $name = time().'_'.$request->icon->getClientOriginalName();
+
             $destination = 'public/images/icon';
             $request->icon->move($destination,$name);
             $icon = $destination.'/'.$name;

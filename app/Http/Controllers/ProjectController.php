@@ -129,7 +129,6 @@ class ProjectController extends Controller
             foreach ($request->file('images') as $image) {
                 $name = $image->getClientOriginalName();
                 $destination = 'public/images/project';
-                // move
                 $image->move($destination, $name);
                 $path = $destination . '/' . $name;
                 ImageProject::create([
