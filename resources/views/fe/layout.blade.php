@@ -46,6 +46,12 @@
             .fab-icon {
                 margin-top: 16px;
             }
+            .team-photo {
+                width: 100%;
+                max-width: 370px;
+                height: 100px;
+                object-fit: cover;
+            }
         </style>
     </head>
     
@@ -198,9 +204,9 @@
                             </div>
                         </div>
                         <div class="header-right tw-flex tw-items-center tw-space-x-4">
-                            <div class="header-button md:tw-block tw-hidden">
-                                <a href="https://wa.me/085317713639" class="tw-py-3 tw-px-5 tw-rounded-md tw-text-white tw-font-semibold tw-bg-sky-500 tw-flex tw-items-center tw-space-x-2">
-                                    <span>free Consultancy</span>
+                            <div class="header-button ">
+                                <a href="https://wa.me/085317713639" class="tw-py-3 tw-px-5 tw-rounded-md tw-text-white tw-font-semibold tw-bg-sky-500  tw-items-center tw-space-x-2 md:tw-block tw-hidden">
+                                    <span>Free Consultancy</span>
                                     <i class="fa-solid fa-arrow-right-long"></i>
                                 </a>
                             </div>
