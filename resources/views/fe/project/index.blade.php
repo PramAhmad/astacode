@@ -1,9 +1,10 @@
 @extends('fe.layout')
 @section('content')
 
-<section class="project-section section-padding fix">
+<section class="project-section section-padding section-bg-2 fix">
+   
     <div class="container">
-        <div class="row g-4">
+        <div class="row g-4" id="project-container">
             @if ($project->isEmpty())
                 <div class="col-12">
                     <div class="alert alert-danger" role="alert">
@@ -31,10 +32,17 @@
                     </div>
                 </div>
             </div>
+            {{-- load more  --}}
+                {{-- --}}
             @endforeach
-           
+            {{-- paging button --}}
+            <div class="col-12">
+               {{-- link using tailwind --}}
+                {{ $project->links() }}
+            </div>
+            
         </div>
     </div>
 </section>
-    
+
 @endsection

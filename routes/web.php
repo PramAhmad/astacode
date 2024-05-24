@@ -39,6 +39,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('/jabatan', MasterJabatanMember::class)->middleware('role:admin');
     Route::resource('/member',MemberController::class)->middleware('role:admin');
     Route::resource('/project',ProjectController::class)->middleware('role:admin');
+    Route::get('/project/loadmore',[ProjectController::class,'loadMore'])->name('project.loadmore');
     Route::resource('/service',ServiceController::class)->middleware('role:admin');
     Route::resource('/tech',TechnologyController::class)->middleware('role:admin');
     Route::delete('/image/{id}/delete', [ProjectController::class, 'destroyImage'])->name('image.destroy');

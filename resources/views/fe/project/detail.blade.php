@@ -7,7 +7,7 @@
                 <div class="col-lg-12">
                     <div class="project-details-items">
                         <div class="details-image">
-                            <img src="{{$project->images[0]->path}}" alt="img">
+                            <img src="{{asset($project->images[0]->path)}}" alt="img">
                         </div>
                         <div class="row g-4 justify-content-between">
                             <div class="col-lg-7">
@@ -101,7 +101,7 @@
                            <div class="row g-4 pt-5">
                                <div class="col-lg-6 col-md-6">
                                    <div class="thumb">
-                                       <img src="{{$item->path}}" alt="img">
+                                       <img src="{{asset($item->path)}}" alt="img">
                                    </div>
                                </div>
                               

@@ -22,9 +22,7 @@ class ProjectController extends Controller
         return view('admin.project.index', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+   
     public function create()
     {
         $data['category'] = CategoryProject::orderBy('created_at', 'asc')->get();
