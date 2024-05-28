@@ -45,13 +45,20 @@
             }
             .fab-icon {
                 margin-top: 16px;
-            }
+                }
+               
             .team-photo {
                 width: 100%;
                 max-width: 370px;
                 height: 100px;
                 object-fit: cover;
             }
+            @media (max-width: 767px) {
+                    .free-button{
+                        display: none !important;
+                    }
+                }
+            
         </style>
     </head>
     
@@ -120,7 +127,7 @@
                         <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                             <div class="offcanvas__logo">
                                 <a href="{{route('frontend.index')}}">
-                                    <img src="{{asset('fe/assets/img/logo/logo.png')}}" alt="logo-img">
+                                    <img src="{{asset('fe/assets/img/logo/logo.png')}}" alt="logo-img" width="100-x">
                                 </a>
                             </div>
                             <div class="offcanvas__close">
@@ -177,8 +184,8 @@
                 <div class="mega-menu-wrapper tw-container">
                     <div class="header-main tw-flex tw-justify-between tw-items-center tw-py-4">
                         <div class="logo ">
-                            <a href="index.html" class="header-logo ">
-                                <img src="{{asset('fe/assets/img/logo/logo.png')}}" width="130px" alt="logo-img" class="tw-w-32">
+                            <a href="{{route('frontend.index')}}" class="header-logo ">
+                                <img src="{{asset('fe/assets/img/logo/logo.png')}}" width="200px" alt="logo-img" >
                             </a>
                         </div>
                         <div class="header-left tw-flex-grow">
@@ -204,8 +211,8 @@
                             </div>
                         </div>
                         <div class="header-right tw-flex tw-items-center tw-space-x-4">
-                            <div class="header-button ">
-                                <a href="https://wa.me/085317713639" class="tw-py-3 tw-px-5 tw-rounded-md tw-text-white tw-font-semibold tw-bg-sky-500  tw-items-center tw-space-x-2 md:tw-block tw-hidden">
+                            <div class="header-button md:tw-block  free-button">
+                                <a href="https://wa.me/085317713639" class="tw-py-3 tw-px-5 tw-rounded-md tw-text-white tw-font-semibold tw-bg-sky-500 tw-flex tw-items-center tw-space-x-2">
                                     <span>Free Consultancy</span>
                                     <i class="fa-solid fa-arrow-right-long"></i>
                                 </a>

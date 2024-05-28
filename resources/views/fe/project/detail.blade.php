@@ -7,7 +7,7 @@
                 <div class="col-lg-12">
                     <div class="project-details-items">
                         <div class="details-image">
-                            <img src="{{asset($project->images[0]->path)}}" alt="img">
+                            <img src="{{{asset($project->firstimage->path)}}}" alt="img">
                         </div>
                         <div class="row g-4 justify-content-between">
                             <div class="col-lg-7">
@@ -112,7 +112,7 @@
                     <div class="preview-area">
                         @if ($prev_project)                     
                         <div class="preview-item">
-                            <img src="{{$prev_project->firstimage->path}}"  width="67px" alt="img">
+                            <img src="{{asset($prev_project->firstimage->path)}}"  width="67px" alt="img">
                             <div class="content">
                                 <h3>
                                     <a href="{{ route('frontend.detail.project', $prev_project->id) }}">
@@ -133,7 +133,7 @@
                                 </h3>
                                 <p>{{$next_project->category_project->name}}</p>
                             </div>
-                            <img src="{{$next_project->firstimage->path}} " width="67px" alt="img">
+                            <img src="{{asset($next_project->firstimage->path)}} " width="67px" alt="img">
                         </div>
                         @endif
                     </div>

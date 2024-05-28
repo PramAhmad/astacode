@@ -87,9 +87,9 @@
                         </div>
                         <div class="content">
                             <h4>
-                                <a href="service-details.html">
+                                <p>
                                     {{$item->name}}
-                                </a>
+                                </p>
                             </h4>
                             <p>
                                 {{$item->description}}
