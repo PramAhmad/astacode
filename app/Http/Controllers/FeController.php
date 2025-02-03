@@ -30,13 +30,7 @@ class FeController extends Controller
 
 
     // loadmore
-    public function loadMore(Request $request){
-        if($request->ajax()){
-            $page = $request->get('page',1);
-            $projects = Project::with('firstimage', 'category_project')->paginate(3, ['*'], 'page', $page);
-            return view('admin.project.loadmore', compact('projects'))->render();
-        }
-    }
+   
     public function detailProject($id)
     {
         $data["project"] = Project::with('category_project','images')->find($id);
@@ -47,7 +41,7 @@ class FeController extends Controller
     }
     public function member()
     {
-        $data["member"] = Member::orderBy('id','asc')->paginate(3);
+        $data["member"] = Member::orderBy('id','asc')->paginate(6);
         return view('fe.member.index',$data);
     }
     public function detailMember($id)

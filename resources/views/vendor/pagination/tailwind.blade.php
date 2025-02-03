@@ -24,7 +24,7 @@
 
         <div class="tw-hidden sm:tw-flex-1 sm:tw-flex sm:tw-items-center sm:tw-justify-between">
             <div>
-                <p class="tw-text-sm tw-text-gray-700 tw-leading-5 dark:tw-text-gray-400">
+                <p class="tw-text-sm tw-text-white tw-leading-5 ">
                     {!! __('Showing') !!}
                     @if ($paginator->firstItem())
                         <span class="tw-font-medium">{{ $paginator->firstItem() }}</span>
