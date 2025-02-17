@@ -34,7 +34,6 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         $validated = $request->validate([
             'name' => 'required | min:3 | max:255 |string',
             'category_project_id' => 'required',
@@ -46,6 +45,7 @@ class ProjectController extends Controller
           
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ]);
+
         $project = Project::create([
             'name' => $validated['name'],
             'client_name' => $validated['client_name'],
@@ -56,11 +56,11 @@ class ProjectController extends Controller
             'category_project_id' => $validated['category_project_id'],
             'created_at' => now(),
         ]);
-//    bulk insert foto cuy
+        
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $name = $image->getClientOriginalName();
-                $path = $image->storeAs('public/images', $name);
+                $path = $image->storeAs('public/images/project', $name);
                 
                 ImageProject::create([
                     'project_id' => $project->id,
@@ -70,8 +70,6 @@ class ProjectController extends Controller
                 ]);
             }
         }
-    
-    
     
         return redirect()->route('project.index')->with('success', 'Data has been added successfully');
     }
@@ -99,7 +97,6 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->all());
         $project = Project::findOrFail($id);
 
         $request->validate([
