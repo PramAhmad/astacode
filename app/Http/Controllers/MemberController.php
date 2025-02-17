@@ -109,7 +109,7 @@ class MemberController extends Controller
             'instagram' => 'required',
             'linkedin' => 'required',
             'twitter' => 'required',
-            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'photo' => 'required | image | mimes:jpeg,png,jpg,gif,svg,webp | max:2048',
         ]);
   
         $member = Member::findOrFail($id);
