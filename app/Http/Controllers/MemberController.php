@@ -29,7 +29,6 @@ class MemberController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $validated = $request->validate([
             'name' => '  min:3 | max:255 |string',
             'jabatan_id' => 'required',
@@ -38,12 +37,13 @@ class MemberController extends Controller
             'instagram' => 'required',
             'linkedin' => 'required',
             'twitter' => 'required',
-            'photo' => 'required | image | mimes:jpeg,png,jpg,gif,svg | max:2048',
+            'photo' => 'required | image | mimes:jpeg,png,jpg,gif,svg,webp | max:2048',
         ]);
+
         // handle file upload
         $name = $request->photo->getClientOriginalName();
         $destination = 'public/images/member';
-        $request->photo->move($destination,$name);
+        $request->photo->move($destination, $name);
         $url = $destination.'/'.$name;
         
         $member = Member::create([
