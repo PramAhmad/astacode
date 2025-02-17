@@ -30,7 +30,7 @@
                         <h6 class="wow fadeInUp md:tw-text-3xl tw-text-left tw-text-xl" data-wow-delay=".2s">Best it SOULTION Provider</h6>
                         <h1 class="wow fadeInUp md:tw-text-5xl tw-text-3xl tw-font-semibold" data-wow-delay=".4s">
                             We Help Our Clients To Grow Their Business
-                        </h1>``
+                        </h1>
                         <p class="wow fadeInUp" data-wow-delay=".6s" class="">
                             Astacode is a company engaged in the technology sector, with our motto being Support Your
                             System, with types of services including IT Consultant, System Development, Networking, Gadget
