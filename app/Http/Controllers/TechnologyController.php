@@ -36,7 +36,7 @@ class TechnologyController extends Controller
       try {
         $validated = $request->validate([
             'name' => 'required | min:3 | max:255 | string',
-            'foto' => 'required | image | mimes:jpeg,png,jpg,gif,svg | max:2048',
+            'foto' => 'required | image | mimes:jpeg,png,jpg,gif,svg,webp | max:2048',
         ]);
         
      
@@ -82,7 +82,7 @@ class TechnologyController extends Controller
     try {
         $validated = $request->validate([
             'name' => 'required | min:3 | max:255 | string',
-            'foto' => 'image | mimes:jpeg,png,jpg,gif,svg | max:2048',
+            'foto' => 'image | mimes:jpeg,png,jpg,gif,svg,webp | max:2048',
         ]);
         $tech = Technology::find($id);
         if($request->hasFile('foto')){
