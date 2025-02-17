@@ -212,7 +212,7 @@
                         </div>
                         <div class="header-right tw-flex tw-items-center tw-space-x-4">
                             <div class="header-button md:tw-block  free-button">
-                                <a href="https://wa.me/085317713639" class="tw-py-3 tw-px-5 tw-rounded-md tw-text-white tw-font-semibold tw-bg-sky-500 tw-flex tw-items-center tw-space-x-2">
+                                <a href="https://wa.me/6285317713639" class="tw-py-3 tw-px-5 tw-rounded-md tw-text-white tw-font-semibold tw-bg-sky-500 tw-flex tw-items-center tw-space-x-2">
                                     <span>Free Consultancy</span>
                                     <i class="fa-solid fa-arrow-right-long"></i>
                                 </a>
@@ -380,7 +380,7 @@
             </div>
         </footer>
         {{-- float icon wa using tailwind prefix tw---}}
-        <a href="https://wa.me/085317713639" class="floating" target="_blank">
+        <a href="https://wa.me/6285317713639" class="floating" target="_blank">
             <i class="fab fa-whatsapp fab-icon"></i>
             </a>
         
