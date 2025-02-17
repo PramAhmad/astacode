@@ -145,7 +145,7 @@
                             </p>
                             <div class="about-icon-items">
                                 <div class="icon-items wow fadeInUp" data-wow-delay=".7s">
-                                    <div class="icon">
+                                    <div class="icon" style="padding:20px">
                                         <img src="{{ asset('fe/assets/img/about/icon-4.svg') }}" alt="icon-img">
                                     </div>
                                     <div class="content">
@@ -156,7 +156,7 @@
                                     </div>
                                 </div>
                                 <div class="icon-items wow fadeInUp" data-wow-delay=".9s">
-                                    <div class="icon">
+                                    <div class="icon" style="padding:20px">
                                         <img src="{{ asset('fe/assets/img/about/icon-5.svg') }}" alt="icon-img">
                                     </div>
                                     <div class="content">
