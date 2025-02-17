@@ -125,7 +125,7 @@
                                 </div>
                             </div>
                             <div class="about-img-1 tw-h-full  bg-cover wow fadeInLeft" data-wow-delay=".3s" style=" margin-bottom: 0%">
-                                <img src="{{ asset('fe/assets/img/team/aboutteam3.png') }}" alt="about-img"
+                                <img src="{{ asset('fe/assets/img/team/team.webp') }}" alt="about-img"
                                     style="background-position: center;width:450px;">
 
                             </div>

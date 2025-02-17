@@ -28,8 +28,8 @@ Route::post('/contact',[ContactController::class,'store'])->name('contact.store'
  
 Route::group(['prefix'=> 'astacode2020'],function(){
     Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/login', [AuthController::class, 'storeLogin'])->name('login.store');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('/login', [AuthController::class, 'storeLogin'])->name('login.store');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 // route group admnin
