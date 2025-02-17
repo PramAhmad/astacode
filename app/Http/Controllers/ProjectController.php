@@ -44,7 +44,7 @@ class ProjectController extends Controller
             'challenge' => 'required',
             'description_result' => 'required',
           
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ]);
         $project = Project::create([
             'name' => $validated['name'],
@@ -110,7 +110,7 @@ class ProjectController extends Controller
             'description_project' => 'required|string',
             'challenge' => 'required|string',
             'description_result' => 'required|string',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ]);
 
         $project->update([
