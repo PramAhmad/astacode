@@ -16,8 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-    // craete dummmy for project and projject image
-    Role::create(['name' => 'admin']);
+  
 
     // User Seeder
    $user = User::create([
