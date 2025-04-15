@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FeController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\MasterCategoryProject;
 use App\Http\Controllers\MasterJabatanMember;
 use App\Http\Controllers\MemberController;
@@ -47,8 +48,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::delete('/skill/{id}/delete', [MemberController::class, 'destroySkill'])->name('skill.destroy');
     // contact
     Route::get('/contact', [ContactController::class, 'contact'])->name('contact.index')->middleware('role:admin');
-
+    // jobs
 });    
+Route::resource('/admin/jobs', JobController::class)->middleware('role:admin')->name('index','admin.jobs.index')->name('create','admin.jobs.create')->name('store','admin.jobs.store')->name('show','admin.jobs.show')->name('edit','admin.jobs.edit')->name('update','admin.jobs.update')->name('destroy','admin.jobs.destroy');;
 
 Route::get("clear",function(){
     // optimize
