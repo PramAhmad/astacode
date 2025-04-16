@@ -22,8 +22,9 @@ class JobController extends Controller
             $query->where('type', $request->type);
         }
         
-
-        // Get the jobs with pagination
+        if ($request->has('name')) {
+            $query->where('name', 'like', '%' . $request->name . '%');
+        }
         $jobs = $query->latest()->paginate(10);
         
         return response()->json([
