@@ -159,6 +159,19 @@
                 <i class="mdi mdi-account-multiple-outline menu-icon"></i>
               </a>
             </li> 
+            {{-- job and contact --}}
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('admin.jobs.index')}}">
+                <span class="menu-title">Job</span>
+                <i class="mdi mdi-briefcase menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('admin.contact.index')}}">
+                <span class="menu-title
+">Contact</span>
+                <i class="mdi mdi-email menu-icon"></i>
+              </a>
 
             {{-- signout --}}
             <li class="nav-item">

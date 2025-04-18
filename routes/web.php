@@ -47,9 +47,12 @@ Route::group(['prefix' => 'admin'], function () {
     // skill destroy
     Route::delete('/skill/{id}/delete', [MemberController::class, 'destroySkill'])->name('skill.destroy');
     // contact
-    Route::get('/contact', [ContactController::class, 'contact'])->name('contact.index')->middleware('role:admin');
+    Route::resource('contact', ContactController::class);
     // jobs
 });    
+Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
+    Route::resource('contact', ContactController::class);
+});
 Route::resource('/admin/jobs', JobController::class)->middleware('role:admin')->name('index','admin.jobs.index')->name('create','admin.jobs.create')->name('store','admin.jobs.store')->name('show','admin.jobs.show')->name('edit','admin.jobs.edit')->name('update','admin.jobs.update')->name('destroy','admin.jobs.destroy');;
 
 Route::get("clear",function(){
