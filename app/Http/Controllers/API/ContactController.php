@@ -17,11 +17,12 @@ class ContactController extends Controller
      */
     public function submit(Request $request)
     {
+        // dd($request->all());
         // Validate the request
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
-            'email' => 'required|email|max:255',
+            'email' => 'required|max:255',
             'message' => 'required|string',
         ]);
 
@@ -58,5 +59,6 @@ class ContactController extends Controller
                 'error' => $e->getMessage()
             ], 500);
         }
+        
     }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FeController;
 use App\Http\Controllers\FrontendController;
@@ -54,6 +55,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::resource('contact', ContactController::class);
 });
 Route::resource('/admin/jobs', JobController::class)->middleware('role:admin')->name('index','admin.jobs.index')->name('create','admin.jobs.create')->name('store','admin.jobs.store')->name('show','admin.jobs.show')->name('edit','admin.jobs.edit')->name('update','admin.jobs.update')->name('destroy','admin.jobs.destroy');;
+
+Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
+
+    Route::resource('criteria', CriteriaController::class);
+});
 
 Route::get("clear",function(){
     // optimize

@@ -41,8 +41,7 @@
             </div>
             <div class="form-group">
                 <label for="deadlineInput">Application Deadline</label>
-                <input type="date" class="form-control" id="deadlineInput" name="deadline" 
-                    value="{{ old('deadline', $job->deadline ? $job->deadline->format('Y-m-d') : '') }}">
+                <input type="date" class="form-control" id="deadlineInput" name="deadline" value="{{ old('deadline', $job->deadline ? $job->deadline->format('Y-m-d') : '') }}">
             </div>
             
             <!-- Job Criteria Section -->
@@ -50,41 +49,71 @@
                 <div class="card-header">
                     <h5>Job Criteria</h5>
                 </div>
-                <div class="card-body" id="criteria-container">
-                    @if(old('criteria', $job->criteria))
-                        @foreach(old('criteria', $job->criteria ?? []) as $index => $criteria)
-                            <div class="row criteria-row mb-3">
-                                <div class="col-md-11">
-                                    <input type="text" class="form-control" name="criteria[]" value="{{ $criteria }}" placeholder="Enter job criteria">
-                                </div>
-                                <div class="col-md-1">
-                                    @if(!$loop->first)
+                <div class="card-body">
+                    <!-- Criteria selection dropdown -->
+                    <div class="mb-4">
+                        <label class="form-label">Add Criteria from Master List</label>
+                        @php
+                            $masterCriterias = App\Models\Criteria::orderBy('name')->get();
+                        @endphp
+                        <div class="input-group mb-3">
+                            <select class="form-control" id="criteria-selector">
+                                <option value="">-- Select a criteria --</option>
+                                @foreach($masterCriterias as $masterCriteria)
+                                    <option value="{{ $masterCriteria->name }}">{{ $masterCriteria->name }}</option>
+                                @endforeach
+                            </select>
+                            <div class="input-group-append">
+                                <button class="btn btn-info" type="button" id="add-master-criteria">Add</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+                    
+                    <h6 class="mb-3">Selected Job Criteria</h6>
+                    <div id="criteria-container">
+                        @php
+                            // Get criteria from old input or model, and ensure it's an array
+                            $criteriaArray = old('criteria', $job->criteria ?? []);
+                            if (!is_array($criteriaArray)) {
+                                $criteriaArray = [];
+                            }
+                        @endphp
+                        
+                        @if(count($criteriaArray) > 0)
+                            @foreach($criteriaArray as $index => $criteria)
+                                <div class="row criteria-row mb-3">
+                                    <div class="col-md-11">
+                                        <input type="text" class="form-control" name="criteria[]" value="{{ $criteria }}" placeholder="Enter job criteria">
+                                    </div>
+                                    <div class="col-md-1">
                                         <button type="button" class="btn btn-danger btn-sm remove-criteria">
                                             <i class="mdi mdi-delete"></i>
                                         </button>
-                                    @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="row criteria-row mb-3">
+                                <div class="col-md-11">
+                                    <input type="text" class="form-control" name="criteria[]" placeholder="Enter job criteria">
+                                </div>
+                                <div class="col-md-1">
+                                    <!-- Empty for the first row -->
                                 </div>
                             </div>
-                        @endforeach
-                    @else
-                        <div class="row criteria-row mb-3">
-                            <div class="col-md-11">
-                                <input type="text" class="form-control" name="criteria[]" placeholder="Enter job criteria">
-                            </div>
-                            <div class="col-md-1">
-                                <!-- Empty for the first row -->
-                            </div>
-                        </div>
-                    @endif
+                        @endif
+                    </div>
                 </div>
                 <div class="card-footer">
-                    <button type="button" class="btn btn-sm btn-info" id="add-criteria">+ Add Criteria</button>
+                    <button type="button" class="btn btn-sm btn-info" id="add-criteria">+ Add Custom Criteria</button>
                 </div>
             </div>
             
             <div class="form-group">
                 <label for="description">Job Description</label>
-                <textarea class="form-control " id="description" rows="10" name="description">{{ old('description', $job->description) }}</textarea>
+                <textarea class="form-control summernote" id="description" rows="10" name="description">{{ old('description', $job->description) }}</textarea>
             </div>
             
             <div>
@@ -99,6 +128,73 @@
 </div>  
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
+<script>
+        $('.summernote').summernote({
+        placeholder: 'Write job description here...',
+        tabsize: 2,
+        height: 300,
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'italic', 'clear']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+    });
+</script>
+<script>
+$(document).ready(function() {
+    // Initialize Summernote
 
+ 
+    // Add a custom criteria field
+    $('#add-criteria').on('click', function() {
+        let newRow = `
+        <div class="row criteria-row mb-3">
+            <div class="col-md-11">
+                <input type="text" class="form-control" name="criteria[]" placeholder="Enter job criteria">
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-danger btn-sm remove-criteria">
+                    <i class="mdi mdi-delete"></i>
+                </button>
+            </div>
+        </div>
+        `;
+        $('#criteria-container').append(newRow);
+    });
+    
+    // Add criteria from master list
+    $('#add-master-criteria').on('click', function() {
+        let selectedCriteria = $('#criteria-selector').val();
+        
+        if (selectedCriteria) {
+            let newRow = `
+            <div class="row criteria-row mb-3">
+                <div class="col-md-11">
+                    <input type="text" class="form-control" name="criteria[]" value="${selectedCriteria}" placeholder="Enter job criteria">
+                </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-danger btn-sm remove-criteria">
+                        <i class="mdi mdi-delete"></i>
+                    </button>
+                </div>
+            </div>
+            `;
+            $('#criteria-container').append(newRow);
+            $('#criteria-selector').val(''); // Reset the dropdown
+        }
+    });
+    
+    // Remove a criteria field
+    $(document).on('click', '.remove-criteria', function() {
+        $(this).closest('.criteria-row').remove();
+    });
+});
+</script>
 @endsection

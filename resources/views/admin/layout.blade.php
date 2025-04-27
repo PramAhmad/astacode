@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/images/favicon.ico')}}">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
     @vite('resources/css/app.css')
     <style>
       .active {
@@ -132,6 +135,8 @@
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="{{route('category.index')}}" > Category</a></li>
                   <li class="nav-item"> <a class="nav-link" href="{{route('jabatan.index')}}">Jabatan</a></li>
+                  {{-- criteria --}}
+                  <li class="nav-item"> <a class="nav-link" href="{{route('admin. criteria.index')}}">Job Criteria</a></li>
                 </ul>
               </div>
             </li>
