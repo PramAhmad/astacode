@@ -136,7 +136,7 @@
                   <li class="nav-item"> <a class="nav-link" href="{{route('category.index')}}" > Category</a></li>
                   <li class="nav-item"> <a class="nav-link" href="{{route('jabatan.index')}}">Jabatan</a></li>
                   {{-- criteria --}}
-                  <li class="nav-item"> <a class="nav-link" href="{{route('admin. criteria.index')}}">Job Criteria</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{route('admin.criteria.index')}}">Job Criteria</a></li>
                 </ul>
               </div>
             </li>
