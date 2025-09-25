@@ -39,7 +39,7 @@
             @endforeach
         <div class="col-12">
                {{-- link using tailwind --}}
-                {{ $project->links() }}
+                {{ $member->links() }}
             </div>
         </div>
      
