@@ -41,7 +41,7 @@ class FeController extends Controller
     }
     public function member()
     {
-        $data["member"] = Member::orderBy('id','asc')->paginate(6);
+        $data["member"] = Member::orderBy('id','asc')->paginate(9);
         return view('fe.member.index',$data);
     }
     public function detailMember($id)
