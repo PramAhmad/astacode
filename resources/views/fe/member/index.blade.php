@@ -37,7 +37,13 @@
                 </div>
             </div>
             @endforeach
+        <div class="col-12">
+               {{-- link using tailwind --}}
+                {{ $project->links() }}
+            </div>
         </div>
+     
+            
     </div>
 </section>
 @endsection
